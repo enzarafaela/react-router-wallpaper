@@ -1,0 +1,72 @@
+.wallpaperContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .wallpaperTitle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 3.2em;
+    color: rgba(255, 255, 255, 0.87);
+    line-height: 1.1;
+    z-index: 2;
+  }
+  
+  .wallpaperImage {
+    max-height: 80vh;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+  }
+  
+  .downloadLink {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out;
+    z-index: 2;
+  }
+  
+  .downloadLink:hover {
+    background-color: #0056b3;
+  }
+  
+  .wallpaperAuthor {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.87);
+    padding: 5px;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.2);
+    line-height: 1.5;
+    z-index: 2;
+  }
+  
+  .footer {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+  }
+  
