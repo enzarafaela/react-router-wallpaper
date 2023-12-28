@@ -5,7 +5,6 @@ import Wallpapers from './pages/Wallpapers';
 import WallpaperDetails from './pages/Wallpaper-Details';
 
 function App() {
-
   return (
     <Routes>
       <Route path="/" element={ <Home /> }></Route>
