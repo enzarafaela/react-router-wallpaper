@@ -1,13 +1,22 @@
 import { useParams } from "react-router-dom";
-import { wallpapers } from '../../data/data';
 import { Link } from "react-router-dom";
 import styles from './wallpaper-details.module.css';
+import { fetchSingleWallpaper } from "../../services/unsplashAPI";
+import { useEffect, useState } from "react";
+import { WallpaperType } from "../../types/wallpaperType";
 
-function WallpaperDetails() {
+function WallpaperDetails( ) {
   const { wallpaperId } = useParams();
-  const wallpaper = wallpapers.find((element) => {
-    return element.id === Number(wallpaperId);
-  });
+
+  const [wallpaper, setWallpaper] = useState<WallpaperType>()
+
+  useEffect(() => {
+    async function getInfo() {
+      const returnedData = await fetchSingleWallpaper(wallpaperId);
+      setWallpaper(returnedData);
+    }
+    getInfo();
+  }, [])
 
   return (
     <>
