@@ -1,7 +1,7 @@
 import { WallpaperResponseType } from "../types/wallpaperType";
 
-export const fetchWallpapersUnsplash = async () => {
-    const response = await fetch('https://api.unsplash.com/search/photos?client_id=1Y_R3UfmOuQlbnS2HtVnKRnOuhZzncEfgMEv1ko33Fo&query=wallpapers&page=2&per_page=11');
+export const fetchWallpapersUnsplash = async (page) => {
+    const response = await fetch(`https://api.unsplash.com/search/photos?client_id=1Y_R3UfmOuQlbnS2HtVnKRnOuhZzncEfgMEv1ko33Fo&query=wallpapers&page=${page}&per_page=5`);
 
     const data = await response.json();
     const unsplashWallpapers = data.results.map((result: WallpaperResponseType) => {
