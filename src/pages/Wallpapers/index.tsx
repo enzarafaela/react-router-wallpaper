@@ -1,5 +1,4 @@
 import styles from './wallpapers.module.css';
-// import { wallpapers } from '../../data/data'
 import { Link } from 'react-router-dom';
 import { fetchWallpapersUnsplash } from '../../services/unsplashAPI';
 import { useEffect, useState } from 'react';
@@ -16,7 +15,6 @@ function Wallpapers() {
         setLoading(true);
         const returnedData = await fetchWallpapersUnsplash(page);
         setWallpapers((prevArr) => [...prevArr, ...returnedData]);
-        // console.log(returnedData);
       } catch (error) {
         console.log('Deu erro', error);
       } finally {
@@ -33,7 +31,6 @@ function Wallpapers() {
       console.log(scrollHeight, clientHeight, scrollTop);
       
       if (scrollTop + clientHeight + 1 >= scrollHeight) {
-        console.log('Chegou ao fim da página!');
         setPage((prevPage) => prevPage + 1);
       }
     }
@@ -59,15 +56,16 @@ function Wallpapers() {
       <div className={ styles.wallpapersListContainer }>
         { 
           wallpapers.map((wallpaper) => (
-              <div 
-                className={ styles.cardContainer }
-                key={ wallpaper.id }>
-                <div className={ styles.cardTitle }>
-                  <p className={ styles.cardTitle }>{ wallpaper.title}</p>
-                </div>
-                <img className={ styles.cardImage } src={ wallpaper.url }></img>
-                <Link className={ styles.cardButtonRight } to={`/wallpapers/${wallpaper.id}`}>Detalhes</Link>
+            <div 
+              className={ styles.cardContainer }
+              key={ wallpaper.id }
+            >
+              <div className={ styles.cardTitle }>
+                <p className={ styles.cardTitle }>{ wallpaper.title}</p>
               </div>
+              <img className={ styles.cardImage } src={ wallpaper.url }></img>
+              <Link className={ styles.cardButtonRight } to={`/wallpapers/${wallpaper.id}`}>Detalhes</Link>
+            </div>
           )) 
         }
       </div>
