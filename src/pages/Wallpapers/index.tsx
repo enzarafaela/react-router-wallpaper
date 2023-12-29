@@ -8,13 +8,14 @@ import { WallpaperType } from '../../types/wallpaperType';
 function Wallpapers() {
   const [wallpapers, setWallpapers] = useState<WallpaperType[]>([])
   const [loading, setLoading] = useState(false);
-  
+  const [page, setPage] = useState(1);
+
   useEffect(() => {
     async function getData() {
       try {
         setLoading(true);
-        const returnedData = await fetchWallpapersUnsplash();
-        setWallpapers(returnedData);
+        const returnedData = await fetchWallpapersUnsplash(page);
+        setWallpapers((prevArr) => [...prevArr, ...returnedData]);
         // console.log(returnedData);
       } catch (error) {
         console.log('Deu erro', error);
@@ -24,8 +25,26 @@ function Wallpapers() {
     }
 
     getData();
-  }, [])
-
+  }, [page])
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollHeight, clientHeight, scrollTop } = document.documentElement;
+      console.log(scrollHeight, clientHeight, scrollTop);
+      
+      if (scrollTop + clientHeight + 1 >= scrollHeight) {
+        console.log('Chegou ao fim da página!');
+        setPage((prevPage) => prevPage + 1);
+      }
+    }
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+  
   if (loading) {
     return (
       <>
