@@ -7,3 +7,13 @@ If you're new to React Router, we recommend you start with [the tutorial](https:
 If you're migrating to v6 from v5 (or v4, which is the same as v5), check out [the migration guide](/docs/upgrading/v5.md). If you're migrating from Reach Router, check out [the migration guide for Reach Router](/docs/upgrading/reach.md). If you need to find the code for v5, [it is on the `v5` branch](https://github.com/remix-run/react-router/tree/v5).
 
 Documentation for v6 can be found [on our website](https://reactrouter.com/).
+
+# useEffect()
+
+The useEffect Hook allows you to perform side effects in your components.
+
+Some examples of side effects are: fetching data, directly updating the DOM, and timers.
+
+useEffect accepts two arguments. The second argument is optional.
+
+```useEffect(<function>, <dependency>)```
